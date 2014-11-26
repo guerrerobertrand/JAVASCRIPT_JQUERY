@@ -1,0 +1,14 @@
+#monTexte{
+  width: 500px;
+  height: 300px;
+  color: red;
+}
+
+div{
+  height: 0px;
+  width: 350px;
+  border: 1px solid black;
+  overflow: auto;
+  text-align: justify;
+  opacity: 0.9;
+ }

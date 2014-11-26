@@ -1,0 +1,160 @@
+/* memento_JQuery.txt */
+
+/* "cross browser", écriture standardisée et réutilisable */
+
+
+// référence librairie dans le HEAD du fichier HTML
+<script type ="text/javascript" src="jquery.js"></script>
+// soit référence en ligne (google), soit locale chemin/jquery.js
+
+//une fois le fichier de base chargé
+/* 1 - déclaration de jQuery */
+
+$(document).ready(function(){
+//ici je mets mon code JQuery...
+});
+
+//attention syntaxe un peu particulière de Jquery
+
+/* 2 - synoptique */
+$(selecteur).fonction();
+
+//très puissant couplage sélecteurs+fonctions+imbrications
+
+/* 3 - les sélecteurs : syntaxe similaire aux sélecteurs CSS */
+$('#toto') //id de la page
+$('.toto') //classe de la page
+$('p') //tous les paragraphes
+$('p.toto') // les p ayant pour classe = toto
+$('p[name]')
+// etc...
+
+
+/* 4 - les pseudo-classes */ 
+$('div:first-child')
+$('span:first')
+//etc... child, first, last, li:even (éléments pair d'une liste)
+
+/* 5 - les combinateurs */
+$('div h1') // éléments ayant des parentés: éléments H1 qui ont pour parent un DIV
+$('div>h1') // les enfants H1 directs (premier parent)
+$('h1+h2') // 
+$('h1~h2') //
+
+/* 6 - les sélecteurs multiples */
+// on sépare par des virgules
+$('p:first, div.toto, input['button']) //
+
+/* 7 - Accès au DOM */
+$(selecteur).not(x) // exclus x de la sélection
+$(selecteur).slice(x,y) // les éléments d'index x à y
+$(selecteur).parent() // cible le parent direct
+$(selecteur).children(x) cible l'enfant direct en respectant x
+$(selecteur).siblings() //cible uniquement les frères
+$(selecteur).prev() //cible le frère précédent
+$(selecteur).next() //cible le frère suivant
+
+
+/* 8 - Manipuler le DOM */
+
+// 8-1 Gérer les éléments
+$(selecteur).each(function(index){});
+$(selecteur).length;
+$(selecteur)[indice];
+
+// 8-2 Gérer les attributs
+$(selecteur).attr(name) // les éléments ayant pour attribut name
+
+// 8-3 Gérer les classes css
+$(selecteur).addClass('classe');
+$(selecteur).addClass('classe1 classe2 classe3'); //multiples séparés par des espaces
+//ajouter, supprimer, modifier,...switcher une classe
+$(selecteur).toggleClass('classe');
+
+// 8-4 Gérer les styles CSS
+$(selecteur).css("propriété"); // entourer la propriété CSS avec des ""
+// soit récupérer la valeur de la propriété soit la modifier
+
+// 8-5 Gérer les dimensions des éléments
+$('selecteur').height();
+$('selecteur').width();
+
+// 8-6 Gérer le contenu
+$('div').html('<p>Texte</p>'); // insérer du html
+$('div').text('Texte'); // insérer du texte non interprété
+
+// récupérer la valeur d'une sélection
+$('select').val(); // récupère la valeur sélectionnée dans la liste
+
+
+// 8-7 - insérer dans le DOM
+// exemples sur les éléments d'une liste
+$(selecteur).prepend(html)
+$(selecteur).append(html)
+$(selecteur).before(html)
+$(selecteur).after(html)
+
+//insertion/suppression dans le DOM
+$(selecteur).empty() // vide tout à l'intérieur
+$(selecteur).remove(x) // supprime un sous élément d'une sélection
+
+
+/* 9 - Gestion des événements !!IMPORTANT! PUISSANCE DE Javascript! */
+
+// 9-1 - méthode (oldschool) = "bind"
+$(selecteur).bind('evenement',function(event)) // quand on détecte l'évenement la fonction est appelée
+// l'évenement est passé en paramètre de la fonction (objet event)
+
+
+// 9-2 - les événements
+click; 
+resize; 
+mouseover; 
+mouseout; 
+scroll; 
+keydown; 
+focus; 
+blur (perte de focus); 
+submit(envoi de formulaire)
+
+
+// 9-3 - Les propriétés de event
+timeStamp
+keyCode
+wich // quelle touche
+//très utilisés, les 4 derniers :
+pageX // position exacte dans la page
+pageY // position exacte dans la page
+clientX // position client(zone affichée) dans la page => translation
+clientY // position client(zone affichée) dans la page => translation
+
+// 9-4 Les méthodes de event (2 méthodes)
+stopPropagation(); //stope la remontée dans l'arborescence (clic sur éléments imbriqués)
+preventDefault(); //inhibe le comportement par defaut
+
+
+// 9-5 Gestion simplifiée
+$(selecteur).evenement(function()) // exemple le click souris...
+
+
+// 9-6 Méthode = "on"
+$(selecteur).on('evenement',selecteur2, function()) // attacher des objets non présents dans le DOM...
+
+
+/* 10 - Les Effets Visuels */
+
+// 10-1 les classiques
+
+slideUp, slideDown, slideToggle,....
+fadeIn, fadeOut, fadeTo,...
+show(duree), hide(duree), toggle(duree),...
+
+// 10-2 Enchaînements
+$(selecteur).effet1(param1); 
+$(selecteur).effet2(param2); 
+$(selecteur).effet3(param3);
+
+// 10-3 Créer ses propres effets 
+$(selecteur).animate(objCSS, duree, easing);  
+
+

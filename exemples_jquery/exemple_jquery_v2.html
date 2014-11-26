@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+	  <title>TEST</title>
+	  <link type="text/css" rel="stylesheet" href="style.css" />
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+		//ici je mets mon code JQuery...
+		//alert('ok'); // test pour vérifier le bon chargement de jquery
+// exemples de sélecteurs
+//		$('#toto').css({'background-color':'red'});
+//		$('.titi').css({'background-color':'red'});
+//		$('p:even').css({'background-color':'red'});
+//		$('p:last').css({'background-color':'red'});
+
+// exemples de manipulation de DOM
+//		var temp = $('p').length;
+//		alert('nombre de paragraphes : '+temp);
+		
+// exemple pour gérer le style
+//		var temp = $('h1').css("font-size");		
+//		alert(temp);
+
+// exemple dimensions
+//		$('h1').height(300); //en px par défaut on modifie dynamiquement la hauteur
+
+// exemple contenu
+//		$('div').html('<p>Texte</p>');
+
+//		var temp = $('select').val();
+//		alert(temp);
+
+//	$('#toto').wrap('<div></div>');
+
+//	$('ul').prepend('<li>JQuery</li>'); // ajout en début de liste
+//	$('ul').append('<li>JQuery</li>'); // ajout en fin de liste
+//	$('ul').before('<li>JQuery</li>'); // ajout avant la liste
+//	$('ul').after('<li>JQuery</li>'); // ajout après la liste
+
+
+// les évenements
+//		$('input[type=button]').bind('click', function(event){
+//		alert('On vient de cliquer');
+
+
+// exemple d'évenement Focus et Blur
+/*		$('input').bind('focus', function(event){
+			
+			var numero = $(this).index();
+			//alert(numero);
+			$(this).attr('placeholder','placeholder'+numero); //on met l'index au focus
+		});
+		
+		$('input').bind('blur', function(event){
+			$(this).attr('placeholder',''); // on vide à la perte de focus
+		});
+*/		
+
+// exemple propriétés de event (which)
+//			$('input').bind('click', function(event){
+//			var numero= event.which; //précise le numéro de bouton
+//			alert(numero);
+
+// exemples des 2 méthodes de event
+/*			$('#pp').bind('click', function(event){
+				alert('clic sur Pp');
+				event.stopPropagation(); //évite la propagation du clic
+		});
+			$('#dd').bind('click', function(event){
+				alert('clic sur Divd');
+		}); */
+
+/*			$('a').bind('click', function(event){
+				event.preventDefault(); //inhibe le comportement par défaut
+				alert('clic sur lien A');
+				
+		}); */
+
+/* // NE FONCTIONNE PAS
+// exemple méthode "on"
+
+			$('#art').on('click', 'p', function(){
+				$('#art').append('<p>Nouveau paragraphe</p>');
+				//alert('click');
+			});	*/	
+			
+/* // NE FONCTIONNE PAS			
+// Exemple EFFETS	
+			$('input').click(function(){
+				$('p').slideToggle(1000);
+			});
+			
+*/			
+// exemple d'effet 
+
+			$('input').click(function(){
+				$('div').animate({opacity:0.2}, 2000, 'linear');
+			});
+		});
+	</script>
+  </head>
+  <body>
+
+
+
+<article>
+	<div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+	sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+	 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+	  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+	   reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+	    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+	     culpa qui officia deserunt mollit anim id est laborum.</p>
+	     </div>
+	     <input type="button" value="GO"/> 
+</article>
+
+
+  </body>
+</html>

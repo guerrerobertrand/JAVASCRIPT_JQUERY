@@ -1,0 +1,45 @@
+label
+{
+	display: inline-block;
+	width: 130px; 
+	margin-left: 10px;
+    font-weight: bold;  
+}
+
+input
+{
+	margin-left: 144px;
+    display: inline-block;
+	width: 200px;
+}
+
+#reponse
+{
+	margin-left: 144px;
+	width: 200px;
+}
+
+input[type="button"]
+{
+	margin-left: 144px;
+	width: 150px;
+}
+
+input 
+{
+	margin-bottom: 10px;
+}
+
+fieldset.Form1
+{
+	width: 400px;
+	background-color: #E3FAF4;
+	margin-bottom: 50px;
+}
+
+fieldset.Form2
+{
+	width: 400px;
+	background-color: #A6BAF4;
+	margin-bottom: 50px;
+}

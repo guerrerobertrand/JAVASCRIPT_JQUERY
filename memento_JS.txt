@@ -1,0 +1,470 @@
+/* My JavaScript memento */
+
+/* commentaires paragraphe */
+//commentaire ligne
+
+/* les instructions sont séparées par un saut de ligne et un ; */
+//instruction1;
+//instruction2;
+
+/* attention sensibilité à la casse */
+/* {c'est un bloc} */
+/* (c'est un groupe d'instructions, ex: Maths) */
+
+/* les variables */
+couleur1="rouge";
+
+/* déclaration de variable propre 
+avec un appel au constructeur 
+et un var pour définir la variable */
+
+// en théorie
+var monNombre2 = new Number(); //par defaut () = 0
+
+// en pratique
+var monNombre = Number(5);
+monNombre = 5;
+//ligne 24 (rigeur) et ligne 25 (chawi) identiques
+var e = Number(2.71345);
+var maChaine = String('xyz');
+maChaine = "xyz";
+var bool = Boolean(true); //par défaut () true
+
+//types particulier null et undefined
+//null est different de vide, un number non initialisé sera null
+var test; // type undefined
+
+//connaître le type d'une variable fonction typeof()
+var test = 12;
+var leType = typeof(test);
+window.document.write(leType);
+
+//objet window.document (toute la page de la fenêtre générale)
+var nbr1 = 1;
+var nbr2 = 5;
+window.document.write( '<h1>bonjour</h1>' );
+
+// utiliser des espaces, ils ne comptent pas mais le code est plus lisible 
+window.document.write( nbr1 + nbr2 );
+
+//concaténation de nombre : astuce + "" +
+window.document.write(nbr1 + "" + nbr2);
+
+//incrémentation
+nbr1 = nbr1 + 2;
+nbr2++;
+
+window.document.write('<br />' + nbr1);
+window.document.write('<br />' + nbr2);
+
+//décrémentation
+nbr1--;
+window.document.write('<br />' + nbr1);
+
+//opérateurs Math
+var nbr1 = Math.floor(1.678); //base
+var nbr1 = Math.ceil(1.678); //plafond
+
+/* exemple de fonction, variables locales et globales : changement de couleur indique la portée */
+var nom3 = String(); //globale car en dehors de fonction
+function test(){
+  nom1 = "pascal"; //globale
+  var nom2 = "bertrand"; //locale ou privée
+}
+//appel de la fonction
+test();
+window.document.write(nom1);
+window.document.write('<br />' + nom2);
+
+/* exemple de fonction 2, variables locales et globales : changement de couleur indique la portée */
+var nom = "pascal"; //globale car en dehors de fonction
+function test(nom){
+  nom = "hervé"; //ignorée
+}
+//appel de la fonction
+test();
+window.document.write(nom);
+/* A Faire */
+/* variable globale => var et en dehors de la fonction */
+/* variable locale => var et dans la fonction */
+
+/*affichage ou boite alert*/
+function affiche(){
+  window.document.write("très bien");
+  alert("très bien");
+}
+function affiche(){
+  /*message qui ne renvoie rien*/
+  //window.alert("très bien");
+ 
+  /*message qui renvoie réponse vrai / faux
+  variable boolean rangée dans opinion*/
+  //var reponse = confirm("êtes-vous sûr ?");
+  //window.document.write(reponse);
+  
+  /* Saisi de texte (label, texte par défaut) */
+var nbr =  prompt("veuillez saisir un nombre ?","mettre votre nombre ici");
+var result = nbr*nbr;
+	window.alert("le carré de "+ nbr + " est :" + result);
+}
+
+/* les structures de contrôles*/
+// structure switch
+
+function affiche(){
+//on récupère la réponse à la question
+var reponse = prompt("comment ca va ?");
+
+//traitement de la réponse
+switch(reponse){
+    
+  case "bien":
+    // j'échappe un caractère qui pose problème avec antislash
+	window.document.write("c\'est cool");
+    break;
+  case "bof":
+	window.document.write("zut");    
+    break;
+  default:
+	window.document.write("normal"); 	   
+}
+}
+/*********************************************************/
+/*********************************************************/
+/* DEBUG boucle while */
+// structure switch
+function affiche(){
+  var i = 0;
+  while(i<10){
+    alert(i); // boite temporaire pour vérifier que la valeur est correcte
+    window.document.write(i+"<br />"); // on utilise la valeur incrémentée
+    i++;
+	}
+}
+
+// structure for
+function affiche(){
+  var somme=0;
+  var i;
+ for(i=0;i<10;i++){
+	somme+=i;
+	}
+	window.document.write(somme+"<br />");   
+}
+
+// structure for
+function affiche(){
+  var i;
+ for(i=0;i<10;i++){
+    window.document.write(i+"<br />"); 
+	}
+}
+// structure for
+function affiche(){
+  var i;
+ for(i=0;i<20;i+=5){ //incrémentation de 5
+    window.document.write(i+"<br />"); 
+	}
+}
+// structure for spéciale parcours de tableau idem pour parcours des objets
+function affiche(){
+  var couleurs = Array("rouge", "bleu","vert","jaune");
+  for (var ind in couleurs){
+    alert("A l'indice " + ind + " est enregistré " + couleurs[ind]);
+  }
+}
+
+// structure imbriquée, break => très bien pour économiser les ressources
+function affiche(){
+var c1 = 0;
+
+boucleA: // tout le bloc while dessous se "nomme" boucleA (comme un label ou étiquette)
+while (c1<6) {
+	window.document.write("<strong>Compteur boucle 1 : </strong>" + c1 + "<br />");
+  for(var c2=0; c2<5; c2++){
+	window.document.write(" - Compteur boucle 2 : " + c2 + "<br />");
+    if((c1 == 2) && (c2 ==1)){
+		break boucleA;      //rupture nette de boucleA
+    }
+  }
+  c1++;
+}
+}
+/* ********************************************* FAUX */
+// structure imbriquée, continue
+function affiche(){
+var c1 = 0;
+boucleA: // tout le bloc while dessous se "nomme" boucleA (comme un label ou étiquette)
+while (c1<6) {
+	window.document.write("<strong>Compteur boucle 1 : </strong>" + c1 + "<br />");
+  for(var c2=0; c2<5; c2++){
+    if(c1 == 4) continue;
+	window.document.write(" - Compteur boucle 2 : " + c2 + "<br />");
+    }
+  }
+  c1++;
+}
+/* ********************************************* FAUX */
+
+
+/* ***************TABLEAUX ************************/
+/* retour sur tableau, différents types, copie de tab*/
+
+//déclarations
+var tab1 = Array("Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche");
+/*
+//var tab2 = tab1; // ce n'est pas une copie, c'est un alias ou copie par référence (idem pour les objets)
+
+//tests
+//affectation à tab2
+//tab2[0] = "dredi";
+//on interroge tab1
+//window.document.write(tab1[0]);
+//la réponse est "dredi" on a bien les mêmes objets...
+*/
+/*
+//une vraie copie c'est parcours de tab1 et copie de valeurs dans tab3
+// ici déclaration d'un vrai tableau vide
+var tab3=Array();
+
+//parcours et copie des valeurs aux indices
+//redimension à la volée (à chaque copie) du tableau tab3
+for(var i=0; i<tab1.length;i++){
+  tab3[i]=tab1[i];
+}
+tab3[0] = "dredi";
+window.document.write(tab1[0]+" - "+tab3[0]);
+*/
+/*
+//Tableau associatif
+var tabAsso = Array();
+
+tabAsso["premier"]="Lundi";
+tabAsso["deux"]="Mardi";
+tabAsso["trois"]="Mercredi";
+tabAsso["quatre"]="Jeudi";
+
+window.document.write("<br>"+tabAsso["deux"]);
+*/
+
+//imbriquer des tableaux ou tableau multi-dimension
+// cas de bases de données par exemple : stocker nom, age, num,...
+var tabA = Array(1, 2, 3, 4, 5);
+var tabB = Array("a","b","c","d");
+
+var tabC = Array();
+
+tabC[0]=tabA;
+tabC[1]=tabB;
+
+window.document.write(tabC[0][3]); // réponse 4
+window.document.write("<br>"); // br
+window.document.write(tabC[1][2]); // réponse c
+
+
+/*****************************/
+/* Fonction Temporisation */
+/* un compteur */
+var compt = 0;
+
+function compter(){
+  compt++;
+  //mettre du contenu dans l'élément sélectionné : innerHTML
+  window.document.getElementById("compteurA").innerHTML=compt; 
+  setTimeout("compter()", 1000);
+}
+//window.onLoad = compter(); 
+compter();
+
+/**** HTML et CSS associés *****/
+/* HTML */
+<body>
+<!-- Start your code here -->
+ 
+  <div id="compteurA"></div> 
+  
+
+<!-- End your code here -->
+</body>
+/* CSS */
+div{
+  border: 1px solid gray;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 32px;
+}
+
+/********************************/
+
+/* Exercice 5.2 Horloge
+objet Date et méthodes associées */
+//fonctions à l'intérieur des objets : s'appellent méthodes
+
+//fonction horloge
+function horloge(){
+
+  //déclarations
+var laDate = new Date();
+var lHeure = laDate.getHours();
+var laMinute = laDate.getMinutes();
+var laSeconde = laDate.getSeconds();
+
+//gérer l'affichage d'un seul chiffre
+  if(laSeconde<10){
+    laSeconde ="0"+laSeconde;
+  }
+  if(laMinute<10){
+    laMinute="0"+laMinute;
+  }
+  if(lHeure<10){
+    lHeure="0"+lHeure;
+  }
+  window.document.getElementById("compteurA").innerHTML = lHeure+" : "+laMinute+" : "+laSeconde ;
+	
+  	setTimeout("horloge()", 1000); //attente en fin de fonction, il tue la fonction après
+}
+
+horloge(); //on rappelle la fonction
+
+/***********************************************/
+
+/* modifier les objets HTML : formulaire */
+
+function verif(){
+  // on récupère la valeur de la boite text nommé prix
+  //on appelle les éléments du formulaires après "forms" avec l'attribut "name"
+  var monForm = window.document.formPrix;
+  //le forms[0] revient a window.document.forms['formPrix'].prix.value;
+  // on récupère le prix
+  var prix = monForm.prix.value;
+  // on récupère le choix de villes, <select> comme un tableau id1 = 0
+ // var ville = monForm.villes.options[1].text;
+ // var ville = monForm.villes.options[monForm.villes.selectedIndex].value;
+	var villes = monForm.villes;
+	var ville = villes.options[villes.selectedIndex].value;
+	  alert(ville);
+/*  //on teste
+  if(monForm.prix.value>500){
+		window.document.forms[0].prix.value = 'Ca va pas ?';  
+  }else{
+    alert('prix = '+p);
+  }
+  */
+}
+
+/* HTML */
+<body>
+<!-- Start your code here -->
+
+<p class="lw">Hello Weaver!</p>
+
+  <form name="formPrix">
+    <!-- "for" associe le label au champ "text" -->
+    <label for="prix">Prix</label>
+    <input type="text" value="" name="prix" id="prix"/>
+    <input type="button" value="vérification" onClick="verif()"/>
+  </form>
+  
+  
+<!-- End your code here -->
+</body>
+/**************************************************/
+
+<body>
+<!-- Start your code here -->
+
+<p class="lw">Hello Weaver!</p>
+
+  <form name="formPrix">
+    <!-- "for" associe le label au champ "text" -->
+    <label for="prix">Prix</label>
+    <input type="text" value="" name="prix" id="prix"/>
+    <br/>
+    
+    <!-- les checkbox dans les forms -->
+    <label for="villes">Villes</label>
+    <select name="villes">
+        <option value="1">Paris</option>
+        <option value="2">Toulouse</option>
+        <option value="3">Bordeaux</option>
+    </select>
+    <hr>
+    
+    <input type="button" value="vérification" onClick="verif()"/>
+  </form>
+  
+  
+<!-- End your code here -->
+</body>
+    
+/**********************************************/
+
+/* Modifier le style CSS */
+function bouge(){
+  var boite = document.getElementById('boite');
+  boite.style.position = "absolute";
+  boite.style.top ="200px";
+  boite.style.left = "200px";
+    //attention aux styles CSS avec tirets.... ex:background-color devient :
+  boite.style.backgroundColor="red";
+}
+
+/* HTML */
+<body>
+
+<div id="boite" onClick="bouge()"></div>  
+ </body>
+
+
+/* CSS */ 
+ div{
+  width: 150px;
+  height: 150px;
+  background-color: #7FFFD4;
+  
+}
+
+/*******************************************************/
+
+/* Modifier le style CSS */
+// "Menu Déroulant"
+
+var h = 50; //variable globale état initial du div
+
+function bouge(){
+
+    if(h>=300){
+    clearTimeout(timer);
+    return; //permet de sortir d'une fonction sans renvoyer rien
+  }
+
+	var boite = document.getElementById('boite');
+  	h++;
+	boite.style.height=h+"px";  
+  timer = setTimeout("bouge()", 5); // h augmente tous les 10 millisecondes
+
+}
+
+/* HTML */
+  <div id="boite" onMouseOver="bouge()">
+  
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>    
+    
+    
+  </div>  
+/* CSS */ 
+
+div{
+  width: 450px;
+  height: 50px;
+  background-color: #7FFFD4;
+  overflow:hidden;
+  padding: 15px;
+  margin: 10px auto;
+  text-align: justify;
+}

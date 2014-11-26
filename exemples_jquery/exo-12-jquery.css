@@ -1,0 +1,27 @@
+ul{
+  list-style-type: none;
+}
+
+liste li{
+	width:50px;
+	text-align:center;
+	margin-left:15px;
+}
+
+.vert{
+  background-color: green;
+}
+
+.jaune{
+  background-color: yellow;
+}
+
+.reset{
+  background-color: none;
+}
+
+
+fieldset{
+	width:200px;
+	background-color:white;
+}

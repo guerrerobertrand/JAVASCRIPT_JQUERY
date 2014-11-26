@@ -1,0 +1,11 @@
+div{
+  border: 1px solid gray;
+  margin: 50px auto;
+  background-color: #F5F5DC;
+  width: 600px;
+  height: auto;
+  text-align: center;
+  line-height: 140px;
+  font-size: 45px;
+  font-weight: bold;
+}

@@ -1,0 +1,294 @@
+Mémento des principales fonctions
+
+Méthodes de base
+À chaque utilisation de jQuery, 
+vous devez vous assurer de plusieurs choses : 
+que vous avez chargé le framework, mais aussi que le DOM s'est correctement créé.
+
+Lien jQuery
+<script src="http://code.jquery.com/jquery.min.js"></script>
+Lien Google
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+Méthode
+
+
+$(document).ready(function());
+Dès que le DOM est prêt, on exécute du jQuery.
+$(function());
+Idem, en employant un raccourci.
+
+Code minimal pour utiliser jQuery :
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Titre</title>
+    </head>
+    <body>
+        <!-- inclusion du framework depuis Google -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script>
+        $(function(){
+            // du code jQuery ici
+        });
+        </script>
+    </body>
+</html>
+
+Les sélecteurs
+Indispensables au ciblage des éléments de la page, les sélecteurs sont une part incontournable de jQuery :
+
+Sélecteur CSS
+
+$('*');
+Cible tous les éléments (inclus <html>, <head> et <body>).
+$('element');
+Cible tous les éléments étant de type correspondant.
+$('#element');
+Cible l'élément ayant l'identifiant donné (obligatoirement unique).
+$('.element');
+Cible tous les éléments ayant la classe donnée.
+$('parent enfant');
+Cibles tous les enfants directs ou indirects de l'élément parent.
+$('element, element2');
+Cible d'abord les premiers élément trouvés, puis les seconds, etc.
+$('parent > enfant');
+Cible tous les enfants directs de l'élément parent.
+$('frere + element');
+Cible tous les éléments précédés directement d'un frère.
+$('frere ~ element');
+Cible tous les éléments précédés directement ou indirectement d'un frère.
+
+Sélecteur par attribut
+
+$('element[attribut]');
+Cible tous les éléments possédant l'attribut donné.
+$('element[attribut="valeur"]');
+Cible tous les éléments possédant l'attribut donné et dont la valeur est égale à celle spécifiée.
+$('element[attribut!="valeur"]');
+Cible tous les éléments possédant l'attribut donné et dont la valeur est différente de celle spécifiée.
+$('element[attribut*="valeur"]');
+Cible tous les éléments possédant l'attribut donné et dont la valeur contient, entre autres, la chaîne spécifiée.
+$('element[attribut1][attribut2][attributN]');
+Cible tous les éléments dont les attributs correspondent à ceux donnés.
+
+Filtres
+
+$(':animated');
+Cible tous les éléments actuellement animés.
+$(':eq(N)');
+Cible tous les éléments dont l'index est égal à N.
+$(':even');
+Cible tous les éléments dont l'index est pair.
+$(':odd');
+Cible tous les éléments dont l'index est impair.
+$(':first');
+Cible le premier élément trouvé.
+$(':last');
+Cible le dernier élément trouvé.
+$(':focus');
+Cible tous les éléments ayant actuellement le focus.
+$(':header');
+Cible tous les éléments de type header (<h1>, <h2>, <h3>, etc).
+$(':not(selecteur)');
+Cible tous les éléments ne correspondant pas au sélecteur donné.
+
+Sélecteurs pour formulaire
+
+$(':input');
+Cible tous les éléments de formulaire.
+$(':button');
+Cible tous les éléments de formulaire de type button.
+$(':checkbox');
+Cible tous les éléments de formulaire de type checkbox.
+$(':checked');
+Cible toutes les boîtes cochées.
+$(':file');
+Cible tous les éléments de formulaire de type file.
+$(':password');
+Cible tous les éléments de formulaire de type password.
+$(':radio');
+Cible tous les éléments de formulaire de type radio.
+$(':submit');
+Cible tous les éléments de formulaire de type submit.
+$(':text');
+Cible tous les éléments de formulaire de type text.
+Les évènements
+Utilisez les évènements pour déclencher une fonction sur l'action de l'utilisateur. jQuery prend en charge beaucoup d'évènements, profitez-en !
+
+Gestionnaires d'évènements
+
+on()
+Initialise un gestionnaire d'évènements.
+off()
+Supprimer un gestionnaire d'évènements.
+trigger()
+Simule un évènement.
+
+Évènement du clavier
+
+keydown()
+Se déclenche à l'enfoncement d'une touche.
+keyup()
+Se déclenche au relâchement d'une touche.
+keypress()
+Se déclenche à l'enfoncement et au maintient d'une touche.
+Il est possible de récupérer le code de la touche enfoncée grâce à la propriété keyCode.
+
+Évènement de la souris
+
+click()
+Se déclenche au clic.
+dblclick()
+Se déclenche au double-clic.
+hover()
+Se déclenche au passage sur l'élément ciblé.
+mousedown()
+Se déclenche à l'enfoncement du bouton de la souris.
+mouseup()
+Se déclenche au relâchement du bouton de la souris.
+mouseenter()
+Se déclenche à l'entrée du curseur sur l'élément ciblé.
+mouseleave()
+Se déclenche à la sortie du curseur de l'élément ciblé.
+mousemove()
+Se déclenche au mouvement de la souris.
+toggle()
+Se déclenche à chaque clic, et alterne deux fonctions.
+
+Évènement AJAX
+
+ajaxStart()
+Se déclenche au début d'une requête AJAX.
+ajaxComplete()
+Se déclenche une fois la requête AJAX terminée.
+ajaxSuccess()
+Se déclenche si la requête AJAX s'est terminée avec succès.
+ajaxError()
+Se déclenche si une erreur est survenue lors de la requête AJAX.
+Manipulation du CSS
+Modifier le style d'une page à la volée est une possibilité rendue très simple par jQuery, 
+notamment grâce à sa méthode css() très puissante. Il existe néanmoins d'autres méthodes parfois 
+plus adaptées selon les cas.
+
+Méthode
+
+css()
+Récupère ou modifie une ou plusieurs propriété(s) CSS.
+height()
+Récupère la hauteur de l'élément ciblé.
+width()
+Récupère la largeur de l'élément ciblé.
+innerHeight()
+Récupère la hauteur de l'élément ciblé en prenant en compte ses marges intérieures mais pas les bordures.
+innerWidth()
+Récupère la largeur de l'élément ciblé en prenant en compte ses marges intérieures mais pas les bordures.
+outerHeight()
+Récupère la hauteur de l'élément ciblé en prenant en compte ses marges intérieures, extérieures, et ses bordures.
+outerWidth()
+Récupère la largeur de l'élément ciblé en prenant en compte ses marges intérieures, extérieures, et ses bordures.
+offset()
+Récupère les coordonnées absolues de l'élément ciblé.
+position()
+Récupère les coordonnées relatives de l'élément ciblé.
+scrollTop()
+Récupère la position verticale de la barre de défilement par rapport à la page.
+scrollLeft()
+Récupère la position horizontale de la barre de défilement par rapport à la page.
+Les effets
+Au-delà du style CSS se situe l'animation, rendue possible grâce à bon nombre de méthode dont la plus célèbre 
+est sans doute animate().
+
+Méthode
+
+animate()
+Anime une ou plusieurs propriété(s) CSS, à l'aide d'arguments tels que la durée ou l'accélération de l'animation.
+hide()
+Fait disparaître un élément (et lui donne la propriété display:none).
+show()
+Fait réapparaître un élément.
+fadeOut()
+Fait disparaître un élément (qui aura la propriété display:none) avec un effet de fondu.
+fadeIn()
+Fait réapparaître un élément avec un effet de fondu.
+slideUp()
+Fait disparaître un élément avec un effet de glissement.
+slideDown()
+Fait réapparaître un élément avec un effet de glissement.
+stop()
+Arrête l'animation en cours.
+Les attributs
+Ces méthodes permettent d'accéder aux attributs des éléments, et de les manipuler.
+
+Méthode
+
+attr()
+Récupère ou modifie l'attribut d'un élément.
+removeAttr()
+Supprime l'attribut d'un élément.
+addClass()
+Ajoute une classe à un élément.
+removeClass()
+Supprime une classe d'un élément.
+Méthodes de parcours
+Cette section répertorie les méthodes permettant de parcourir l'arbre DOM.
+
+Méthode
+
+find()
+Permet de trouver un enfant particulier.
+children()
+Trouve l'enfant direct de l'élément ciblé.
+parent()
+Trouve le premier parent de l'élément ciblé.
+parents()
+Trouve tous les ancêtres de l'élément ciblé.
+each()
+Boucle sur chaque élément.
+Manipulation du HTML
+Ici se trouvent les méthodes permettant de modifier la structure HTML de la page.
+
+Méthode
+
+html()
+Récupère ou modifie le contenu HTML de l'élément ciblé.
+text()
+Récupère ou modifie le contenu textuel de l'élément ciblé.
+val()
+Récupère ou modifie la valeur d'un élément de formulaire.
+append()
+Ajoute du contenu HTML ou textuel à la fin de l'élément ciblé.
+prepend()
+Ajoute du contenu HTMK ou textuel au début de l'élément ciblé.
+appendTo()
+Même utilité que append().
+prependTo()
+Même utilité que prepend().
+before()
+Ajoute du contenu HTML ou textuel avant l'élément ciblé.
+after()
+Ajoute du contenu HTML ou textuel après l'élément ciblé.
+clone()
+Duplique un élément (nécessite de place le clone dans le DOM).
+empty()
+Vide un élément.
+remove()
+Supprime un élément.
+wrap()
+Enveloppe un élément.
+Méthodes AJAX
+Enfin, vous trouverez ici les principales fonctions relatives aux requêtes asynchrones d'AJAX.
+
+Méthode
+
+$.ajax()
+Exécute une requête AJAX de type GET ou POST.
+$.post()
+Exécute une requête AJAX de type POST (raccourci de $.ajax()).
+$.get()
+Exécute une requête AJAX de type GET (raccourci de $.ajax()).
+load()
+Charge du contenu HTML de manière asynchrone.
+serialize()
+Permet de sérialiser un formulaire.
